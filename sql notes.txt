@@ -16,6 +16,22 @@ Data types:-
 8)lob :- 4GB
 
 -------------------------------------------------
+create table amdocsstud(empno number,name varchar2(20),address varchar2(20))
+
+insert into amdocsstud values(102,'kiran','Bangalore');
+
+select * from amdocsstud;
+
+alter table amdocsstud add salary number;
+
+update amdocsstud set salary=99000 where empno in(101,102);
+
+insert into amdocsstud(empno,name,address,phoneno,salary) values(103,'Madhu','pune',9988876552,75000);
+
+update amdocsstud set da=salary*.2 where empno in(101,102,103,104);
+
+update amdocsstud set gross=(salary+hra+da)-itax where empno in(101,102,103,104);
+--------------------------------------------------------------------------------------------------------------------------------------
 create table cognizantstud(empno number,name varchar2(20),address varchar2(20))
 
 insert into cognizantstud values(102,'anjali','bangalore');
@@ -171,6 +187,15 @@ constraints
 
 5)foreign key :- you can link a table column with another table column which is having primary key.
 ------------------------------------------------------------
+create table amdocsemp
+(empno number primary key,
+empname varchar2(30) not null,
+address varchar2(30) unique,
+salary number check (salary >=15000));
+
+insert into amdocsemp values(102,'sunil','Hyd',17500);
+-----------------------------------------------------------------------------------------------
+
 create table cognizantemployee
 (empno number primary key,empname varchar2(30) not null,address varchar2(30) unique,
 salary number check (salary >=15000));
@@ -231,6 +256,14 @@ unique (empid,address));
 
 insert into mphasisstud values(102,'sandip','hyd');
 select * from mphasisstud;
+
+sequence :- 1 to 100
+----------------------------------
+create sequence abcx increment by 1 start with 1;
+
+
+insert into amdocsemps(empid,name,address) values(abcx.nextval,'kiran','pune'); 
+----------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------
 Alternate key :- it is also called as secondary key
 
@@ -403,6 +436,13 @@ select * from mphasisemp1 where salary=(select salary from (select distinct sala
 minus
 select salary from (select distinct salary from mphasisemp1 order by salary desc)where rownum<=2);
 -----------------------------------------
+5000
+4000
+3000
+-----------------minus ---------->3000
+5000
+4000
+------------------------------------------
 distinct:- it will display the unique values only.
 -------------
 select distinct salary from mphasisemp1 order by salary desc;
