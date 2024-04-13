@@ -1,3 +1,5 @@
+https://github.com/sandipmohapatra/AMDOCS2024
+-----------------------------------------------------------------------------------
 Java 1.8 features
 --------------------------
 1)Java is Object Oriented programming Language.
@@ -165,7 +167,7 @@ There are 2 types of constructor
 1)default constructor :- it is without any parameter.
 2)parameterized constructor :- it is with parameter.
 To access a constructor we require an object.
------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 program-5
 --------------------
 package monday;
@@ -254,7 +256,7 @@ public static void main(String[] args) {
 -----------------------------------------------------------------------
 Question-2
 wap to create a parameterized constractor .pass the values and display it.
-employee :- empno,name,designation,salary.
+Employee :- empno,name,designation,salary.
 -------------------------------------------------------------------------------------------------------------
 program-7
 ---------------------
@@ -448,7 +450,7 @@ public class Student1
 ----------------------------------------------------------------------
 question-3
 create a bank class 
-accno,name,email,Balance for 20 customers.
+accno,name,email,Balance.
 store the data and display it.
 -------------------------------------------------------------------------------
 Inheritance
@@ -497,7 +499,7 @@ int phy,chem,math,total,avg;
 String grade;
 void input()
 {
-	super.input();
+	super.input();//indicated the super class input inside it.
 	Scanner ob=new Scanner(System.in);
 	System.out.println("enter phy,chem,math marks");
 	phy=ob.nextInt();
@@ -516,7 +518,7 @@ void input()
 }
 void display()
 {
-	super.display();
+	super.display();//indicated the super class dislay inside it.
 	System.out.println("the total is "+total);
 	System.out.println("the average is "+avg);
 	System.out.println("The grade is "+grade);
@@ -528,6 +530,12 @@ public static void main(String[] args)
 	ob.display();
 }
 }
+
+
+*in single inheritance we use the keyword extends for inherite the super class.
+we use the keyword super for accessing the variables and methods.
+
+
 --------------------------------------------------------------------------------
 wap to create a multi-level Inheritance
 employee class :-empno,name,address
@@ -730,6 +738,55 @@ Bank has-a customer
 bank :- accno,branch,balance,customer(object of the customer class)
 Customer :- custid,name,address
 --------------------------------------------------------------------
+package saturday;
+
+public class Bank 
+{
+int accno;
+String name,address;
+Customer cust;
+public Bank(int accno, String name, String address, Customer cust) 
+{
+	super();
+	this.accno = accno;
+	this.name = name;
+	this.address = address;
+	this.cust = cust;
+}
+void display()
+{
+	System.out.println("the accno is "+accno);
+	System.out.println("the name is "+name);
+	System.out.println("the address is "+address);
+	System.out.println("the customer details is "+cust);
+	}
+}
+-----------------------------------------------------------------------------------------------------------
+package saturday;
+
+public class Customer 
+{
+int custid,age;
+String name,address;
+public Customer(int custid, int age, String name, String address) 
+{
+	this.custid = custid;
+	this.age = age;
+	this.name = name;
+	this.address = address;
+}
+@Override
+public String toString() {
+	return "Customer [custid=" + custid + ", age=" + age + ", name=" + name + ", address=" + address + "]";
+}
+public static void main(String[] args) {
+	Customer ob=new Customer(101,25,"Sandip","Bangalore");
+	Bank obj=new Bank(1001,"SBI","MG Road Branch",ob);
+	obj.display();
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+
 Method Overloading:-
 Method Overriding:-
 Abstract class
@@ -827,7 +884,7 @@ abstract class Abstract1
 {
 Abstract1()
 {
-	System.out.println("this is a constractor");
+	System.out.println("this is a constructor");
 }
 abstract void display();
 int sum(int a,int b)
@@ -1237,7 +1294,7 @@ example:-
 -------------------
 1)dividing a number by zero.
 2)crossing the array limit.
-3)entering a character in place to number.
+3)entering a character in place of number.
 The aim of exception handling is we don't want the program to terminate in between.
 The program should display an error message but the flow of the program should be till the end.
 ----------------------------------------------------------------------------
@@ -1924,7 +1981,7 @@ public class SetDemo
 public static void main(String[] args)
 {
 TreeSet<Integer> ts=new TreeSet<Integer>();
-System.out.println(ts.isEmpty());//to check if the TreeSet is empty or not returns a boolean value
+System.out.println(ts.isEmpty());//to check if the TreeSet is empty or not. returns a boolean value
 System.out.println(ts.size());
 ts.add(70);
 ts.add(20);
@@ -3174,7 +3231,7 @@ Thread:-It is a sort of execution of instruction.
 
 single Thread Program:- Till now we were doing single threaded programing the program start execution from the main() till the end.
 ------------------------------------------------------------------------------------------------
-Multi Thread Program:-
+MultiThread Program:-
 Each thread will do some task.
 We can create object of Thread and assign the task.
 In this we will have run() and we will have start() .the start() will call the run().
