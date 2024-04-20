@@ -219,14 +219,29 @@ INNER JOIN employeeamdocs ON bankaccount.empno=employeeamdocs.empno;
 ---------------------------------------------------------------------------------------------------------------------------------
 left outer join
 ------------------------
-select a.accno,a.balance,a.empno,a.bankname,b.name,b.dept,b.salary from bankaccount a,employeeamdocs b where a.empno(+)=b.empno;
+select a.accno,a.balance,a.empno,a.bankname,b.name,b.dept,b.salary from bankaccount a,employeeamdocs b where a.empno=b.empno(+);
 
+SELECT bankaccount.accno, bankaccount.balance,bankaccount.empno,bankaccount.bankname,
+employeeamdocs.name,employeeamdocs.dept,employeeamdocs.salary
+FROM bankaccount
+LEFT JOIN employeeamdocs ON  bankaccount.empno=employeeamdocs.empno
+ORDER BY employeeamdocs.name;
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 right outer join
 ------------------------
-select a.accno,a.balance,a.empno,a.bankname,b.name,b.dept,b.salary from bankaccount a,employeeamdocs b where a.empno=b.empno(+);
+select a.accno,a.balance,a.empno,a.bankname,b.name,b.dept,b.salary from bankaccount a,employeeamdocs b where a.empno(+)=b.empno;
 
-
-
-
+SELECT bankaccount.accno, bankaccount.balance,bankaccount.empno,bankaccount.bankname,
+employeeamdocs.name,employeeamdocs.dept,employeeamdocs.salary
+FROM bankaccount
+RIGHT JOIN employeeamdocs ON  bankaccount.empno=employeeamdocs.empno
+ORDER BY employeeamdocs.name;
+-------------------------------------------------------------------------------------------------------------------------------------
+FULL OUTER JOIN
+-----------------------------------------------
+SELECT bankaccount.accno, bankaccount.balance,bankaccount.empno,bankaccount.bankname,
+employeeamdocs.name,employeeamdocs.dept,employeeamdocs.salary
+FROM bankaccount
+FULL OUTER JOIN employeeamdocs ON  bankaccount.empno=employeeamdocs.empno
+ORDER BY employeeamdocs.name;
