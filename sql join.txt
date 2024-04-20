@@ -217,6 +217,16 @@ employeeamdocs.name,employeeamdocs.dept,employeeamdocs.salary
 FROM bankaccount
 INNER JOIN employeeamdocs ON bankaccount.empno=employeeamdocs.empno;
 ---------------------------------------------------------------------------------------------------------------------------------
+left outer join
+------------------------
+select a.accno,a.balance,a.empno,a.bankname,b.name,b.dept,b.salary from bankaccount a,employeeamdocs b where a.empno(+)=b.empno;
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+right outer join
+------------------------
+select a.accno,a.balance,a.empno,a.bankname,b.name,b.dept,b.salary from bankaccount a,employeeamdocs b where a.empno=b.empno(+);
+
 
 
 
